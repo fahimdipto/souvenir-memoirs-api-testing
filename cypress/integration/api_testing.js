@@ -1,5 +1,6 @@
 import data from '../fixtures/data.json'
 
+
 if (data.method=="GET"){
 describe ('Souvenior-Memoir-API-Testing',()=>{
     let id=""
@@ -65,7 +66,7 @@ describe ('Creating a post',()=>{
             console.log(res.body)
         })
     })
-    it.skip('Delete the memory',()=>{
+    it('Delete the memory',()=>{
         cy.request({
             method:"DELETE",
             url:`/${id}`
