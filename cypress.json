@@ -1,0 +1,9 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "baseUrl":"https://souvenir-memoir.herokuapp.com/post",
+    "env":{
+        "name":"test",
+        "id":""
+    }
+
+}

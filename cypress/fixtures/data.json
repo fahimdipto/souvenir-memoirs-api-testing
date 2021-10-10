@@ -1,0 +1,18 @@
+{
+  "method": "POST",
+  "payload":{
+  "title":"Testing",
+  "message":"Test",
+  "creator":"tester",
+  "tags":"test",
+  "selectedFile":"https://www.etestware.com/wp-content/uploads/2020/08/shutterstock_515285995-1200x580.jpg"
+  },
+  "editedPayload":{
+    "title":"Testing 2",
+    "message":"Test 2",
+    "creator":"tester 2",
+    "tags":"test 2",
+    "selectedFile":"https://www.etestware.com/wp-content/uploads/2020/08/shutterstock_515285995-1200x580.jpg"
+    }
+}
+
