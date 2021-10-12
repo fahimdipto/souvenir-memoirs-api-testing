@@ -1,17 +1,18 @@
 import data from '../fixtures/data.json'
-import faker from 'faker'
 
 describe ("Souvenir-Memoir API Testing",()=>{
         if (data.method=="GET"){
             describe ('Testing Existing Data',()=>{
                 let id=""
-                it('Fetching All Memories and Check Status',()=>{
+                it('Fetching All Memories and Check Status', ()=>{
                     cy.request({
                         method:data.method,
                         url:'/'
+                    
                     }).then(res=> {
+                        cy.log(JSON.stringify(res.body))
                         id=res.body[0]._id
-                        console.log(id)
+                        console.log(res.body)
                         expect(res.status).to.be.eq(200);
                     })
                 })
@@ -41,6 +42,7 @@ describe ("Souvenir-Memoir API Testing",()=>{
                         id=res.body._id;
                         expect(res.body.title).to.be.eq(Data.payload.title);
                         expect(res.body).to.have.property('creator')
+                        console.log(res.body)
                     })
                 })
                 })
@@ -50,9 +52,10 @@ describe ("Souvenir-Memoir API Testing",()=>{
                         url:'/',
                         timeout: 120000
                     }).then(res=> {
-                        let arr= res.body;
-                        let userId=arr[arr.length - 1]._id;
-                        expect(userId).to.be.eq(id)
+                        let newPost = res.body[res.body.length - 1]
+                        expect(newPost).to.have.deep.property("_id", id)
+                        expect(newPost._id).to.be.eq(id)
+                        expect(newPost).to.have.any.keys('_id')
                     })
                 })
                 it('Like the created memory',()=>{
